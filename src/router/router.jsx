@@ -8,13 +8,12 @@ import AuthLoading from "../pages/AuthLoading.jsx";
 import {
   projectTasksLoader,
   inboxTaskLoader,
-  checkTokenLoader,
   personalInfoLoader,
 } from "./loaders.jsx";
 
 const router = createBrowserRouter(
   [
-    { path: "/", Component: AuthLoading, loader: checkTokenLoader },
+    { path: "/", Component: AuthLoading},
     {
       path: "/app",
       loader: personalInfoLoader,
