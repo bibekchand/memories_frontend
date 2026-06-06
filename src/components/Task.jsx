@@ -39,7 +39,7 @@ export default function Task({ taskObject }) {
                             <PencilToSquare className="size-6" />
                         </button>
                     </Popover.Trigger>
-                    <Popover.Content>
+                    <Popover.Content className="overflow-scroll">
                         <Popover.Dialog>
                             <TaskEdit task={task} setTask={setTask} />
                         </Popover.Dialog>
