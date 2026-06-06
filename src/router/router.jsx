@@ -6,38 +6,40 @@ import Project from "../pages/Project.jsx";
 import Register from "../pages/Register.jsx";
 import AuthLoading from "../pages/AuthLoading.jsx";
 import {
-    projectTasksLoader,
-    inboxTaskLoader,
-    checkTokenLoader,
-    personalInfoLoader,
+  projectTasksLoader,
+  inboxTaskLoader,
+  checkTokenLoader,
+  personalInfoLoader,
 } from "./loaders.jsx";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter(
+  [
     { path: "/", Component: AuthLoading, loader: checkTokenLoader },
     {
-        path: "/app",
-        loader: personalInfoLoader,
-        Component: Home,
-        children: [
-            { index: true, Component: Inbox, loader: inboxTaskLoader },
-            { path: "inbox", Component: Inbox, loader: inboxTaskLoader },
-            {
-                loader: projectTasksLoader,
-                path: "project/:project_id",
-                Component: Project,
-            },
-        ],
+      path: "/app",
+      loader: personalInfoLoader,
+      Component: Home,
+      children: [
+        { index: true, Component: Inbox, loader: inboxTaskLoader },
+        { path: "inbox", Component: Inbox, loader: inboxTaskLoader },
+        {
+          loader: projectTasksLoader,
+          path: "project/:project_id",
+          Component: Project,
+        },
+      ],
     },
     {
-        path: "/login",
-        Component: Login,
+      path: "/login",
+      Component: Login,
     },
     {
-        path: "/register",
-        Component: Register,
+      path: "/register",
+      Component: Register,
     },
-    {
-        basename: "/memories_frontend/",
-    },
-]);
+  ],
+  {
+    basename: "/memories_frontend/",
+  },
+);
 export default router;
